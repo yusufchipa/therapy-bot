@@ -1,40 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# AI Therapy Chatbot
+
+A Next.js application that provides an AI-powered therapy chatbot using Google's Gemini API.
+
+## Features
+
+- Modern chat interface built with Next.js and Tailwind CSS
+- Integration with Google's Gemini 2.0 Flash model
+- No login required - just start chatting
+- Session-based conversations (chats reset on page refresh)
+- Responsive design that works on desktop and mobile
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.17.0 or later
+- A Google Gemini API key
+
+### Environment Setup
+
+1. Create a `.env.local` file in the root directory
+2. Add your Gemini API key to the file:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Type your message in the input field and press Send
+2. The AI will respond with supportive, therapy-focused messages
+3. Refresh the page anytime to start a new conversation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Security Note
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This application uses environment variables to securely store API keys. Never commit your `.env.local` file to version control.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).
