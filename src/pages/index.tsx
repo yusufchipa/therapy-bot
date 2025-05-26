@@ -24,7 +24,7 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([{
     role: 'assistant',
-    content: "Hello, I'm your AI therapist. How are you feeling today?",
+    content: "Hello, I'm Neura, your AI Therapist. How are you feeling today?",
     id: 'welcome-message'
   }]);
   const [isLoading, setIsLoading] = useState(false);
@@ -100,7 +100,7 @@ export default function Home() {
     li: (props: any) => <li className="mb-1" {...props} />,
     strong: (props: any) => <strong className="font-bold" {...props} />,
     em: (props: any) => <em className="italic" {...props} />,
-    blockquote: (props: any) => <blockquote className="border-l-4 border-gray-300 pl-4 italic my-2" {...props} />,
+    blockquote: (props: any) => <blockquote className="border-l-4 border-green-300 pl-4 italic my-2" {...props} />,
     code: (props: any) => <code className="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded" {...props} />,
   };
 
@@ -112,23 +112,23 @@ export default function Home() {
   };
 
   return (
-    <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}>
+    <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-[#F5F5F5] text-[#333333]`}>
       <Head>
-        <title>AI Therapy Bot</title>
-        <meta name="description" content="A supportive AI therapy chatbot" />
+        <title>Neura - AI Companion</title>
+        <meta name="description" content="A supportive AI companion for meaningful conversations" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="max-w-4xl mx-auto p-4 flex flex-col h-screen">
         <motion.header 
-          className="py-4 border-b border-gray-200 dark:border-gray-700"
+          className="py-4 border-b border-[#4CAF50]/20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-2xl font-bold text-center">AI Therapy Bot</h1>
-          <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-1">
-            A safe space to talk and reflect
+          <h1 className="text-2xl font-bold text-center text-[#4CAF50]">Neura</h1>
+          <p className="text-center text-[#333333]/70 text-sm mt-1">
+            Your AI Therapist for meaningful conversations
           </p>
         </motion.header>
 
@@ -146,8 +146,8 @@ export default function Home() {
               >
                 <div 
                   className={`max-w-[80%] rounded-lg px-4 py-2 shadow-sm ${message.role === 'user' 
-                    ? 'bg-blue-500 text-white' 
-                    : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700'}`}
+                    ? 'bg-[#4CAF50] text-white' 
+                    : 'bg-white text-[#333333] border border-[#4CAF50]/20'}`}
                 >
                   {message.role === 'user' ? (
                     <p className="whitespace-pre-wrap">{message.content}</p>
@@ -169,11 +169,11 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="max-w-[80%] rounded-lg px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+                <div className="max-w-[80%] rounded-lg px-4 py-2 bg-white border border-[#4CAF50]/20 shadow-sm">
                   <div className="flex space-x-2">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce"></div>
-                    <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                    <div className="w-2 h-2 rounded-full bg-[#FFC107] animate-bounce"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#FFC107] animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 rounded-full bg-[#FFC107] animate-bounce" style={{ animationDelay: '0.4s' }}></div>
                   </div>
                 </div>
               </motion.div>
@@ -185,7 +185,7 @@ export default function Home() {
 
         <motion.form 
           onSubmit={handleSubmit} 
-          className="py-4 border-t border-gray-200 dark:border-gray-700"
+          className="py-4 border-t border-[#4CAF50]/20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -196,13 +196,13 @@ export default function Home() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message here..."
-              className="flex-1 rounded-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition-all duration-200 ease-in-out"
+              className="flex-1 rounded-full px-4 py-2 bg-white border border-[#4CAF50]/30 focus:outline-none focus:ring-2 focus:ring-[#4CAF50] shadow-sm transition-all duration-200 ease-in-out"
               disabled={isLoading}
             />
             <motion.button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-all duration-200 ease-in-out"
+              className="bg-[#4CAF50] hover:bg-[#43A047] text-white rounded-full px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-[#4CAF50] disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-all duration-200 ease-in-out"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -212,12 +212,12 @@ export default function Home() {
         </motion.form>
 
         <motion.footer 
-          className="text-center text-xs text-gray-500 dark:text-gray-400 py-2"
+          className="text-center text-xs text-[#333333]/60 py-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <p>This is an AI assistant, not a replacement for professional therapy.</p>
+          <p>Neura is an AI assistant, not a replacement for professional therapy.</p>
           <p>If you're experiencing a crisis, please contact a mental health professional or emergency services.</p>
         </motion.footer>
       </div>

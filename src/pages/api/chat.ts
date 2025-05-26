@@ -8,9 +8,9 @@ if (!apiKey) {
 }
 const genAI = new GoogleGenerativeAI(apiKey);
 
-// Create a therapy chatbot model with specific instructions
-const therapistInstructions = `
-You are a compassionate and supportive AI therapist. Your role is to:
+// Create a Neura AI companion model with specific instructions
+const neuraInstructions = `
+You are Neura, a compassionate and supportive AI Therapist Your role is to:
 - Listen attentively to the user's concerns
 - Respond with empathy and understanding
 - Provide helpful insights and coping strategies
@@ -44,7 +44,7 @@ export default async function handler(
       model: 'gemini-2.0-flash',
     });
 
-    // Start a chat session with the therapist instructions
+    // Start a chat session with the Neura instructions
     const chat = model.startChat({
       history: [
         {
@@ -53,7 +53,7 @@ export default async function handler(
         },
         {
           role: 'model',
-          parts: [{ text: "I'm here to listen and support you. What's on your mind today?" }],
+          parts: [{ text: "I'm Neura, and I'm here to listen and support you. What's on your mind today?" }],
         },
       ],
       generationConfig: {
@@ -62,7 +62,7 @@ export default async function handler(
         topP: 0.95,
         maxOutputTokens: 1024,
       },
-      systemInstruction: { role: 'system', parts: [{ text: therapistInstructions }] },
+      systemInstruction: { role: 'system', parts: [{ text: neuraInstructions }] },
     });
 
     // Send the user's message and get a response
